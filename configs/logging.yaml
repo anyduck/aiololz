@@ -1,0 +1,36 @@
+version: 1
+
+formatters:
+    simple:
+        format: "%(levelname)s|%(name)s %(message)s"
+
+    complex:
+        format: "%(asctime)s|%(levelname)s %(message)s"
+        datefmt: '%d.%m.%y %H:%M:%S'
+
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: complex
+
+    file:
+        class: logging.handlers.TimedRotatingFileHandler
+        when: midnight
+        backupCount: 5
+        level: DEBUG
+        formatter: complex
+        filename : logs/lolz.log
+
+loggers:
+
+    aiololz.worker:
+        level: DEBUG
+        handlers: [console,file]
+        propagate: yes
+
+    __main__:   
+        level: DEBUG
+        handlers: [console,file]
+        propagate: yes

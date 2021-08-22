@@ -1,0 +1,9 @@
+pyyaml
+matplotlib
+aiohttp[speedups]
+beautifulsoup4
+lxml
+yarl
+
+--extra-index-url https://google-coral.github.io/py-repo/
+tflite_runtime
